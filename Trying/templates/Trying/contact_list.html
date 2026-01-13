@@ -1,0 +1,26 @@
+{% extends 'Trying/base.html' %}
+
+{% block content %}
+<h2>Contact List</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for c in contacts %}
+    <tr>
+        <td>{{ c.name }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.message }}</td>
+        <td>
+            <a href="{% url 'contact_edit' c.id %}">Edit</a> |
+            <a href="{% url 'contact_delete' c.id %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

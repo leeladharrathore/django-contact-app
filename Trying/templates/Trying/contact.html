@@ -1,0 +1,33 @@
+{% extends 'Trying/base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<h1>Contact Us</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <p>
+        <label>Name:</label><br>
+        <input type="text" name="name" required>
+    </p>
+
+    <p>
+        <label>Email:</label><br>
+        <input type="email" name="email" required>
+    </p>
+
+    <p>
+        <label>Message:</label><br>
+        <textarea name="message" rows="4" required></textarea>
+    </p>
+
+    <button type="submit">Send</button>
+</form>
+
+{% if success %}
+    <p style="color:green;">Form submitted successfully ✅</p>
+{% endif %}
+
+{% endblock %}

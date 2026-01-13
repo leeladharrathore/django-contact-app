@@ -1,0 +1,15 @@
+{% extends 'Trying/base.html' %}
+
+{% block content %}
+<h2>Edit Contact</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input type="text" name="name" value="{{ contact.name }}"><br><br>
+    <input type="email" name="email" value="{{ contact.email }}"><br><br>
+    <textarea name="message">{{ contact.message }}</textarea><br><br>
+
+    <button type="submit">Update</button>
+</form>
+{% endblock %}
